@@ -85,7 +85,7 @@
 
 
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 
 <body>
@@ -326,7 +326,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k 字
+          2.3k 字
         
       </span>
     
@@ -394,27 +394,38 @@
 </blockquote>
 <p>PCA是一种正交变换，保持变换前后的距离，因此为了分析神经活动中的环形结构是如何产生的，先在原始的高维空间中考虑</p>
 <p>神经系统的旋转模式实际上来自于周期函数 $\cos(\theta)$，接下来分别对PD shift,Gain,Additive这几种Tuning Curve模型进行分析</p>
-<h4 id="Gain"><a href="#Gain" class="headerlink" title="Gain"></a>Gain</h4><script type="math/tex; mode=display">
-FR = \left( \frac{a_1}{1+e^{-a_2(\mathit{vel}.)}} + c_2 \right) \cdot \cos\left(\theta - \theta_{pd}\right) + c_1</script><p>神经元群体的状态为$s=(FR<em>1,FR_2,\cdots,FR_N)$，在同一条件（vel.和$\theta$不变）下，$FR_i$只和神经元的偏好方向$\theta</em>{pd}$有关</p>
-<p>由于$\cos(\theta - \theta<em>{pd})=\cos\theta\cos\theta</em>{pd}+\sin\theta\sin\theta_{pd}$</p>
-<p>设$\alpha=(\cos\theta<em>{pd,1},\cdots,\cos\theta</em>{pd,N})^T,\beta=(\sin\theta<em>{pd,1},\cdots,\sin\theta</em>{pd,N})^T,C=(c<em>{1,1},\cdots,c</em>{1,N})^T,A=\left(\frac{a<em>{1,i}}{1+e^{-a</em>{2,i}(vel.)}}+c<em>{2,i}\right)</em>{N\times 1},\circ表示Hadamard乘积$</p>
+<h4 id="Gain">Gain</h4>
+<p>$$<br>
+FR = \left( \frac{a_1}{1+e^{-a_2(\mathit{vel}.)}} + c_2 \right) \cdot \cos\left(\theta - \theta_{pd}\right) + c_1<br>
+$$</p>
+<p>神经元群体的状态为$s=(FR_1,FR_2,\cdots,FR_N)$，在同一条件（vel.和$\theta$不变）下，$FR_i$只和神经元的偏好方向$\theta_{pd}$有关</p>
+<p>由于$\cos(\theta - \theta_{pd})=\cos\theta\cos\theta_{pd}+\sin\theta\sin\theta_{pd}$</p>
+<p>设$\alpha=(\cos\theta_{pd,1},\cdots,\cos\theta_{pd,N})^T,\beta=(\sin\theta_{pd,1},\cdots,\sin\theta_{pd,N})^T,C=(c_{1,1},\cdots,c_{1,N})^T,A=\left(\frac{a_{1,i}}{1+e^{-a_{2,i}(vel.)}}+c_{2,i}\right)_{N\times 1},\circ表示Hadamard乘积$</p>
 <p>则$s=(\cos\theta A\circ\alpha+\sin\theta A\circ\beta)+C$</p>
 <p>当$\theta$变化时，$s$的轨迹在$A\circ\alpha,A\circ\beta$张成的二维子空间中的椭圆，中心在$C$点。由于$C$是常量，因此所有椭圆的中心都在一点，对应Fig4D2</p>
 <p>当vel.变化时，平面的法向量$A\circ\alpha\times A\circ\beta$​也在变化，会造成平面倾角的出现，但由于N&gt;3维空间中平面间的情况较为复杂</p>
 <p>尽管倾角的情况较为复杂，但由于$A$本身包含了分母指数项，且对倾角的计算涉及三角函数，计算结果大概率同时包含两者，因此倾角和vel.间的关系应该不是线性的</p>
-<h4 id="Additive"><a href="#Additive" class="headerlink" title="Additive"></a>Additive</h4><script type="math/tex; mode=display">
-FR = a_1 \cdot \cos\left(\theta - \theta_{pd}\right) + \frac{a_3}{1+e^{-a_2(\mathit{vel}.)}} + c_1</script><p>同样的，</p>
-<p>设$C=(\frac{a<em>{3,1}}{1+e^{-a</em>{2,1}(vel.)}}+c<em>{1,1},\cdots,\frac{a</em>{3,N}}{1+e^{-a<em>{2,N}(vel.)}}+c</em>{1,N})^T,A=\left(a<em>{1,1},\cdots,a</em>{1,N}\right)^T$</p>
+<h4 id="Additive">Additive</h4>
+<p>$$<br>
+FR = a_1 \cdot \cos\left(\theta - \theta_{pd}\right) + \frac{a_3}{1+e^{-a_2(\mathit{vel}.)}} + c_1<br>
+$$</p>
+<p>同样的，</p>
+<p>设$C=(\frac{a_{3,1}}{1+e^{-a_{2,1}(vel.)}}+c_{1,1},\cdots,\frac{a_{3,N}}{1+e^{-a_{2,N}(vel.)}}+c_{1,N})^T,A=\left(a_{1,1},\cdots,a_{1,N}\right)^T$</p>
 <p>$s=(\cos\theta A\circ\alpha+\sin\theta A\circ\beta)+C$</p>
 <p>此时$A$是常量，vel.的改变不影响$A$，影响$C$，因此每个椭圆相互平行，彼此间错开，中心的轨迹满足参数曲线$C$，对应Fig4D3</p>
-<h4 id="PD-shift"><a href="#PD-shift" class="headerlink" title="PD shift"></a>PD shift</h4><script type="math/tex; mode=display">
-FR = a_1 \cdot \cos\left( \theta - \theta_{pd} + \frac{a_3}{1+e^{-a_2(\mathit{vel}.)}} \right) + c_1</script><p>$\alpha=\left(\cos\left(\theta<em>{pd,1}-\frac{a</em>{3,1}}{1+e^{-a<em>{2,1}(vel.)}}\right),\cdots,\cos\left(\theta</em>{pd,N}-\frac{a<em>{3,N}}{1+e^{-a</em>{2,N}(vel.)}}\right)\right)^T,\beta=\left(\sin\left(\theta<em>{pd,1}-\frac{a</em>{3,1}}{1+e^{-a<em>{2,1}(vel.)}}\right),\cdots,\sin\left(\theta</em>{pd,N}-\frac{a<em>{3,N}}{1+e^{-a</em>{2,N}(vel.)}}\right)\right)^T$</p>
+<h4 id="PD-shift">PD shift</h4>
+<p>$$<br>
+FR = a_1 \cdot \cos\left( \theta - \theta_{pd} + \frac{a_3}{1+e^{-a_2(\mathit{vel}.)}} \right) + c_1<br>
+$$</p>
+<p>$\alpha=\left(\cos\left(\theta_{pd,1}-\frac{a_{3,1}}{1+e^{-a_{2,1}(vel.)}}\right),\cdots,\cos\left(\theta_{pd,N}-\frac{a_{3,N}}{1+e^{-a_{2,N}(vel.)}}\right)\right)^T,\beta=\left(\sin\left(\theta_{pd,1}-\frac{a_{3,1}}{1+e^{-a_{2,1}(vel.)}}\right),\cdots,\sin\left(\theta_{pd,N}-\frac{a_{3,N}}{1+e^{-a_{2,N}(vel.)}}\right)\right)^T$</p>
 <p>此时$A,C$为常量</p>
 <p>所有的椭圆中心仍在同一点上，对应Fig4D1</p>
 <p>$\alpha,\beta$受vel.的影响，因此体现不出方向选择性</p>
 <p>此时不同vel.的椭圆同样能呈现出不同的倾斜角，但这种倾斜角与Gain模型倾斜角的来源是不同的</p>
-<h4 id="混合模型"><a href="#混合模型" class="headerlink" title="混合模型"></a>混合模型</h4><p>混合模型是三个模型的和，保持椭圆的模式，并且相位、长短轴、中心位置均受vel.的影响，但实验中发现相位不受影响，可能是拟合的时候$a_3$接近于0。从对应Fig4D中也可以看出混合模型与Additive模型偏离较大，接近另外两个模型。</p>
-<h2 id="PC1-PC2平面表示方向的原因"><a href="#PC1-PC2平面表示方向的原因" class="headerlink" title="PC1-PC2平面表示方向的原因"></a>PC1-PC2平面表示方向的原因</h2><p>PCA是寻找数据中方差最大的方向，而在高维空间的椭圆中，方差最大的方向是该椭圆的长轴，其次是短轴，理想情况下其它方向的方差为0，因此PC1-PC2平面对应了椭圆所在的平面，即表示方向</p>
+<h4 id="混合模型">混合模型</h4>
+<p>混合模型是三个模型的和，保持椭圆的模式，并且相位、长短轴、中心位置均受vel.的影响，但实验中发现相位不受影响，可能是拟合的时候$a_3$接近于0。从对应Fig4D中也可以看出混合模型与Additive模型偏离较大，接近另外两个模型。</p>
+<h2 id="PC1-PC2平面表示方向的原因">PC1-PC2平面表示方向的原因</h2>
+<p>PCA是寻找数据中方差最大的方向，而在高维空间的椭圆中，方差最大的方向是该椭圆的长轴，其次是短轴，理想情况下其它方向的方差为0，因此PC1-PC2平面对应了椭圆所在的平面，即表示方向</p>
 <p>当存在多个椭圆时应该接近这些椭圆倾角的平均值</p>
 
                 
@@ -518,7 +529,7 @@ FR = a_1 \cdot \cos\left( \theta - \theta_{pd} + \frac{a_3}{1+e^{-a_2(\mathit{ve
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/03/23/Interactive-information-bci/" title="交互信息脑机接口">
+                      <a href="/2026/03/23/interactive-information-bci/" title="交互信息脑机接口">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">交互信息脑机接口</span>
                         <span class="visible-mobile">上一篇</span>
