@@ -51,6 +51,37 @@
       
       <tag>脑机接口</tag>
       
+      <tag>群体意识</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>临界分支模型</title>
+    <link href="/2025/08/27/critical-branching-model/"/>
+    <url>/2025/08/27/critical-branching-model/</url>
+    
+    <content type="html"><![CDATA[<h2 id="分支过程">分支过程</h2><p>$\xi_i$是独立同分布的变量，表示一个个体产生下一代的随机变量</p><p>$Z_0=1,Z_{n+1}=\sum_{i=1}^{Z_n}\xi_i$​</p><h4 id="生成函数">生成函数</h4><p>设$\xi$的生成函数为$G(s)=\sum_{k=0}^\infty p_ks^k$​</p><p>$Z_n$的生成函数为$G_n(s)=E\left[s^{Z_n}\right]=G(G_{n-1}(s))=G^{(n)}(s)$ (由期望的定义与独立性证明)</p><p>期望$E[\xi]=\mu=G’(1)$</p><h6 id="性质">性质</h6><p>$G(s)$在$s\ge0$上是凸函数</p><p>$\mu=1$时$s=G(s)$的最小非负解是$1$ (分析$G(s)-s$的单调性证明)</p><h4 id="群体规模">群体规模</h4><p>递推公式：$E[Z_{n+1}]=E[E[Z_{n+1}|Z_n]]=E\left[E\left[\sum_{i=1}^{Z_n}\xi_i|Z_n\right]\right]=\mu E[Z_n]$ (由Wald等式证明)</p><h4 id="灭绝概率">灭绝概率</h4><p>设$q_n=P(Z_n=0)$为到第$n$代灭绝的概率，$q=P\left(\bigcup_{n=1}^{\infty}{Z_n=0}\right)$为最终灭绝概率</p><p>由于${Z_n=0}\subset{Z_{n+1}=0}$</p><p>所以$q_n\le q_{n+1}$</p><p>且$q=P\left(\bigcup_{n=1}^{\infty}{Z_n=0}\right)=\lim_{n\to\infty}P(Z_n=0)=\lim_{n\to\infty}q_n$​</p><p>由递推公式$q_{n+1}=G_{n+1}(0)=G(G_n(0))=G(q_n)$</p><p>$q$是$s=G(s)$的解</p><p>对于任意非负解$s^<em>$，由单调性，$0\le G_n(0)\le G_n(s^</em>)=s^*$</p><p>两边对n取极限，得$0\le q\le s^*$</p><p>因此$q$是$s=G(s)$​的最小非负解</p><h2 id="雪崩大小">雪崩大小</h2><p>设$S$​为分支过程从开始到灭绝产生的总个体数</p><p>$S$可分解为后代个体数的和，即$S=1+\sum_{i=1}^k S_i$​</p><p>$E\left[s^S|k\right]=sE\left[s^{\sum_{i=1}^k S_i}|k\right]=s\prod_{i=1}^kE\left[s^{S_i}\right]=sQ(s)^k$ ($k$服从$\xi$的分布且后代的雪崩大小分布与祖先相同)</p><p>$S$生成函数为$Q(s)=E\left[s^S\right]=\sum p_k E\left[s^S|k\right]=sG(Q(s))$</p><p>可证$P(S=r)\propto r^{-\frac{3}{2}}$ (Harris, The Theory of Branching Processes, 1963, Theorem 13.1)</p><h2 id="自组织分支过程">自组织分支过程</h2><p>分支过程的参数需要人为调整，不能自发到达临界态</p><p>Self-Organized Branching Processes: Mean-Field Theory for Avalanches对此引入了修正机制，令每一代，产生后代的概率不再是相同的</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>神经科学</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>临界态</tag>
+      
+      <tag>随机过程</tag>
+      
+      <tag>模型</tag>
+      
     </tags>
     
   </entry>
