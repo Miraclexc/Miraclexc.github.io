@@ -19,15 +19,15 @@
   <meta name="author" content="Astrazenith">
   <meta name="keywords" content="">
   
-    <meta name="description" content="特殊的物理规律 磁场、量子等解释都算在这。但问题是仅是形似。或许有些现象比较像，但在真正发现原因后，现象反而与玄学产生很大的差异。 这种解释的本质是在找当前最神秘的概念来为玄学背书。古代用“气”，近代用“电磁波”，现代用“量子”，并无不同。 统计规律 从拟合看，事物能被更简单的一些参数拟合，占卜就是通过大量的经验找到了卦象和事物之间的拟合关系，因此在卦象上做出的推论能大致符合结果（这个方向倒是有过">
+    <meta name="description" content="特殊的物理规律 磁场、量子等解释都算在这。但问题是仅是形似。或许有些现象比较像，但在真正发现原因后，现象反而与玄学产生很大的差异。 这种解释的本质是在找当前最神秘的概念来为玄学背书。古代用“气”，近代用“电磁波”，现代用“量子”，并无不同。 统计规律 从拟合看，事物能被更简单的一些参数拟合，占卜就是通过大量的经验找到了卦象和事物之间的拟合关系，因此在卦象上做出的推论能大致符合结果（这个方向">
 <meta property="og:type" content="article">
 <meta property="og:title" content="玄学的几种解释">
 <meta property="og:url" content="https://miraclexc.github.io/2026/06/13/some-explanations-of-occultism/">
 <meta property="og:site_name" content="Astrazenith&#39;s Blog">
-<meta property="og:description" content="特殊的物理规律 磁场、量子等解释都算在这。但问题是仅是形似。或许有些现象比较像，但在真正发现原因后，现象反而与玄学产生很大的差异。 这种解释的本质是在找当前最神秘的概念来为玄学背书。古代用“气”，近代用“电磁波”，现代用“量子”，并无不同。 统计规律 从拟合看，事物能被更简单的一些参数拟合，占卜就是通过大量的经验找到了卦象和事物之间的拟合关系，因此在卦象上做出的推论能大致符合结果（这个方向倒是有过">
+<meta property="og:description" content="特殊的物理规律 磁场、量子等解释都算在这。但问题是仅是形似。或许有些现象比较像，但在真正发现原因后，现象反而与玄学产生很大的差异。 这种解释的本质是在找当前最神秘的概念来为玄学背书。古代用“气”，近代用“电磁波”，现代用“量子”，并无不同。 统计规律 从拟合看，事物能被更简单的一些参数拟合，占卜就是通过大量的经验找到了卦象和事物之间的拟合关系，因此在卦象上做出的推论能大致符合结果（这个方向">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-06-13T06:40:00.000Z">
-<meta property="article:modified_time" content="2026-06-13T07:47:13.077Z">
+<meta property="article:modified_time" content="2026-06-13T06:40:00.000Z">
 <meta property="article:author" content="Astrazenith">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -44,8 +44,6 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -379,14 +377,6 @@
           <article class="post-content mx-auto">
             <h1 id="seo-header">玄学的几种解释</h1>
             
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2026年6月13日 下午
-                  
-                
-              </p>
-            
             
               <div class="markdown-body">
                 
@@ -401,7 +391,8 @@
 <h2 id="共时性原理">共时性原理</h2>
 <p>人在某些情况下能从集体潜意识中获取到非因果信息。但该假设无法验证。</p>
 <h2 id="事物与事物只是不同的高维投影">事物与事物只是不同的高维投影</h2>
-<p>物理上有全息原理。哲学与宗教上有流溢论、阿赖耶识、Akashic records。</p>
+<p>物理上有全息原理。哲学与宗教上有流溢论、阿赖耶识、Akashic
+records。</p>
 <h2 id="结构同构性">结构同构性</h2>
 <p>事物有共同的底层规律，符号化能反映事物间的关系。但无法解释部分非符号化/非逻辑的玄学。</p>
 
@@ -565,6 +556,7 @@
 
   
   
+
 
 
 
@@ -822,6 +814,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

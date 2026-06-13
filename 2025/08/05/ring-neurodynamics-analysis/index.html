@@ -19,12 +19,12 @@
   <meta name="author" content="Astrazenith">
   <meta name="keywords" content="">
   
-    <meta name="description" content="相关模型来自Yiheng Zhang, Yun Chen, Tianwei Wang, He Cui (2025) Neural geometry from mixed sensorimotor selectivity for predictive sensorimotor control eLife 13:RP100064  PCA是一种正交变换，保持变换前后的距离，因此为了分析神经活动中的环">
+    <meta name="description" content="相关模型来自Yiheng Zhang, Yun Chen, Tianwei Wang, He Cui (2025) Neural geometry from mixed sensorimotor selectivity for predictive sensorimotor control eLife 13:RP100064  PCA是一种正交变换，保持变换前后的距离，因此为了分析神经">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对于神经动力系统运动过程中环形结构的分析">
 <meta property="og:url" content="https://miraclexc.github.io/2025/08/05/ring-neurodynamics-analysis/">
 <meta property="og:site_name" content="Astrazenith&#39;s Blog">
-<meta property="og:description" content="相关模型来自Yiheng Zhang, Yun Chen, Tianwei Wang, He Cui (2025) Neural geometry from mixed sensorimotor selectivity for predictive sensorimotor control eLife 13:RP100064  PCA是一种正交变换，保持变换前后的距离，因此为了分析神经活动中的环">
+<meta property="og:description" content="相关模型来自Yiheng Zhang, Yun Chen, Tianwei Wang, He Cui (2025) Neural geometry from mixed sensorimotor selectivity for predictive sensorimotor control eLife 13:RP100064  PCA是一种正交变换，保持变换前后的距离，因此为了分析神经">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-08-05T06:49:45.000Z">
 <meta property="article:modified_time" content="2026-05-20T11:42:11.000Z">
@@ -45,8 +45,6 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -328,7 +326,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.3k 字
+          2.1k 字
         
       </span>
     
@@ -339,7 +337,7 @@
         
         
         
-          20 分钟
+          18 分钟
         
       </span>
     
@@ -392,54 +390,80 @@
               <div class="markdown-body">
                 
                 <blockquote>
-<p>相关模型来自Yiheng Zhang, Yun Chen, Tianwei Wang, He Cui (2025) Neural geometry from mixed sensorimotor selectivity for predictive sensorimotor control eLife 13:RP100064</p>
+<p>相关模型来自Yiheng Zhang, Yun Chen, Tianwei Wang, He Cui (2025)
+Neural geometry from mixed sensorimotor selectivity for predictive
+sensorimotor control eLife 13:RP100064</p>
 </blockquote>
 <p>PCA是一种正交变换，保持变换前后的距离，因此为了分析神经活动中的环形结构是如何产生的，先在原始的高维空间中考虑</p>
-<p>神经系统的旋转模式实际上来自于周期函数 $\cos(\theta)$，接下来分别对PD shift,Gain,Additive这几种Tuning Curve模型进行分析</p>
-<h2 id="Gain">Gain</h2>
-<p>$$<br>
-FR = \left( \frac{a_1}{1+e^{-a_2(\mathit{vel}.)}} + c_2 \right) \cdot \cos\left(\theta - \theta_{pd}\right) + c_1<br>
-$$</p>
-<p>神经元群体的状态为$s=(FR_1,FR_2,\cdots,FR_N)$，在同一条件（vel.和$\theta$不变）下，$FR_i$只和神经元的偏好方向$\theta_{pd}$有关</p>
-<p>由于$\cos(\theta - \theta_{pd})=\cos\theta\cos\theta_{pd}+\sin\theta\sin\theta_{pd}$</p>
-<p>设<br>
-$$<br>
-\begin{array}{l}<br>
-\alpha=(\cos\theta_{pd,1},\cdots,\cos\theta_{pd,N})^T\\<br>
-\beta=(\sin\theta_{pd,1},\cdots,\sin\theta_{pd,N})^T\<br>
-C=(c_{1,1},\cdots,c_{1,N})^T\\<br>
-A=\left(\frac{a_{1,i}}{1+e^{-a_{2,i}(vel.)}}+c_{2,i}\right)_{N\times 1}<br>
-\end{array}<br>
-$$<br>
-则$s=(\cos\theta A\circ\alpha+\sin\theta A\circ\beta)+C$，其中$\circ$表示Hadamard乘积</p>
-<p>当$\theta$变化时，$s$的轨迹在$A\circ\alpha,A\circ\beta$张成的二维子空间中的椭圆，中心在$C$点。由于$C$是常量，因此所有椭圆的中心都在一点，对应Fig4D2</p>
-<p>当vel.变化时，平面的法向量$A\circ\alpha\times A\circ\beta$​也在变化，会造成平面倾角的出现，但由于N&gt;3维空间中平面间的情况较为复杂</p>
-<p>尽管倾角的情况较为复杂，但由于$A$本身包含了分母指数项，且对倾角的计算涉及三角函数，计算结果大概率同时包含两者，因此倾角和vel.间的关系应该不是线性的</p>
-<h2 id="Additive">Additive</h2>
-<p>$$<br>
-FR = a_1 \cdot \cos\left(\theta - \theta_{pd}\right) + \frac{a_3}{1+e^{-a_2(\mathit{vel}.)}} + c_1<br>
-$$</p>
+<p>神经系统的旋转模式实际上来自于周期函数 <span
+class="math inline">cos (<em>θ</em>)</span>，接下来分别对PD
+shift,Gain,Additive这几种Tuning Curve模型进行分析</p>
+<h2 id="gain">Gain</h2>
+<p><span class="math display">$$
+FR = \left( \frac{a_1}{1+e^{-a_2(\mathit{vel}.)}} + c_2 \right) \cdot
+\cos\left(\theta - \theta_{pd}\right) + c_1
+$$</span></p>
+<p>神经元群体的状态为<span
+class="math inline"><em>s</em> = (<em>F</em><em>R</em><sub>1</sub>, <em>F</em><em>R</em><sub>2</sub>, ⋯, <em>F</em><em>R</em><sub><em>N</em></sub>)</span>，在同一条件（vel.和<span
+class="math inline"><em>θ</em></span>不变）下，<span
+class="math inline"><em>F</em><em>R</em><sub><em>i</em></sub></span>只和神经元的偏好方向<span
+class="math inline"><em>θ</em><sub><em>p</em><em>d</em></sub></span>有关</p>
+<p>由于<span
+class="math inline">cos (<em>θ</em> − <em>θ</em><sub><em>p</em><em>d</em></sub>) = cos <em>θ</em>cos <em>θ</em><sub><em>p</em><em>d</em></sub> + sin <em>θ</em>sin <em>θ</em><sub><em>p</em><em>d</em></sub></span></p>
+<p>设 <span class="math display">$$
+\begin{array}{l}
+\alpha=(\cos\theta_{pd,1},\cdots,\cos\theta_{pd,N})^T\\\\
+\beta=(\sin\theta_{pd,1},\cdots,\sin\theta_{pd,N})^T\\
+C=(c_{1,1},\cdots,c_{1,N})^T\\\\
+A=\left(\frac{a_{1,i}}{1+e^{-a_{2,i}(vel.)}}+c_{2,i}\right)_{N\times 1}
+\end{array}
+$$</span> 则<span
+class="math inline"><em>s</em> = (cos <em>θ</em><em>A</em> ∘ <em>α</em> + sin <em>θ</em><em>A</em> ∘ <em>β</em>) + <em>C</em></span>，其中<span
+class="math inline">∘</span>表示Hadamard乘积</p>
+<p>当<span class="math inline"><em>θ</em></span>变化时，<span
+class="math inline"><em>s</em></span>的轨迹在<span
+class="math inline"><em>A</em> ∘ <em>α</em>, <em>A</em> ∘ <em>β</em></span>张成的二维子空间中的椭圆，中心在<span
+class="math inline"><em>C</em></span>点。由于<span
+class="math inline"><em>C</em></span>是常量，因此所有椭圆的中心都在一点，对应Fig4D2</p>
+<p>当vel.变化时，平面的法向量<span
+class="math inline"><em>A</em> ∘ <em>α</em> × <em>A</em> ∘ <em>β</em></span>​也在变化，会造成平面倾角的出现，但由于N&gt;3维空间中平面间的情况较为复杂</p>
+<p>尽管倾角的情况较为复杂，但由于<span
+class="math inline"><em>A</em></span>本身包含了分母指数项，且对倾角的计算涉及三角函数，计算结果大概率同时包含两者，因此倾角和vel.间的关系应该不是线性的</p>
+<h2 id="additive">Additive</h2>
+<p><span class="math display">$$
+FR = a_1 \cdot \cos\left(\theta - \theta_{pd}\right) +
+\frac{a_3}{1+e^{-a_2(\mathit{vel}.)}} + c_1
+$$</span></p>
 <p>同样的，</p>
-<p>设$C=(\frac{a_{3,1}}{1+e^{-a_{2,1}(vel.)}}+c_{1,1},\cdots,\frac{a_{3,N}}{1+e^{-a_{2,N}(vel.)}}+c_{1,N})^T,A=\left(a_{1,1},\cdots,a_{1,N}\right)^T$</p>
-<p>$s=(\cos\theta A\circ\alpha+\sin\theta A\circ\beta)+C$</p>
-<p>此时$A$是常量，vel.的改变不影响$A$，影响$C$，因此每个椭圆相互平行，彼此间错开，中心的轨迹满足参数曲线$C$，对应Fig4D3</p>
-<h2 id="PD-shift">PD shift</h2>
-<p>$$<br>
-FR = a_1 \cdot \cos\left( \theta - \theta_{pd} + \frac{a_3}{1+e^{-a_2(\mathit{vel}.)}} \right) + c_1<br>
-$$</p>
-<p>$$<br>
-\begin{array}{l}<br>
-\alpha=\left(\cos\left(\theta_{pd,1}-\frac{a_{3,1}}{1+e^{-a_{2,1}(vel.)}}\right),\cdots,\cos\left(\theta_{pd,N}-\frac{a_{3,N}}{1+e^{-a_{2,N}(vel.)}}\right)\right)^T\\<br>
-\beta=\left(\sin\left(\theta_{pd,1}-\frac{a_{3,1}}{1+e^{-a_{2,1}(vel.)}}\right),\cdots,\sin\left(\theta_{pd,N}-\frac{a_{3,N}}{1+e^{-a_{2,N}(vel.)}}\right)\right)^T<br>
-\end{array}<br>
-$$</p>
-<p>此时$A,C$为常量</p>
+<p>设<span
+class="math inline">$C=(\frac{a_{3,1}}{1+e^{-a_{2,1}(vel.)}}+c_{1,1},\cdots,\frac{a_{3,N}}{1+e^{-a_{2,N}(vel.)}}+c_{1,N})^T,A=\left(a_{1,1},\cdots,a_{1,N}\right)^T$</span></p>
+<p><span
+class="math inline"><em>s</em> = (cos <em>θ</em><em>A</em> ∘ <em>α</em> + sin <em>θ</em><em>A</em> ∘ <em>β</em>) + <em>C</em></span></p>
+<p>此时<span
+class="math inline"><em>A</em></span>是常量，vel.的改变不影响<span
+class="math inline"><em>A</em></span>，影响<span
+class="math inline"><em>C</em></span>，因此每个椭圆相互平行，彼此间错开，中心的轨迹满足参数曲线<span
+class="math inline"><em>C</em></span>，对应Fig4D3</p>
+<h2 id="pd-shift">PD shift</h2>
+<p><span class="math display">$$
+FR = a_1 \cdot \cos\left( \theta - \theta_{pd} +
+\frac{a_3}{1+e^{-a_2(\mathit{vel}.)}} \right) + c_1
+$$</span></p>
+<p><span class="math display">$$
+\begin{array}{l}
+\alpha=\left(\cos\left(\theta_{pd,1}-\frac{a_{3,1}}{1+e^{-a_{2,1}(vel.)}}\right),\cdots,\cos\left(\theta_{pd,N}-\frac{a_{3,N}}{1+e^{-a_{2,N}(vel.)}}\right)\right)^T\\\\
+\beta=\left(\sin\left(\theta_{pd,1}-\frac{a_{3,1}}{1+e^{-a_{2,1}(vel.)}}\right),\cdots,\sin\left(\theta_{pd,N}-\frac{a_{3,N}}{1+e^{-a_{2,N}(vel.)}}\right)\right)^T
+\end{array}
+$$</span></p>
+<p>此时<span class="math inline"><em>A</em>, <em>C</em></span>为常量</p>
 <p>所有的椭圆中心仍在同一点上，对应Fig4D1</p>
-<p>$\alpha,\beta$受vel.的影响，因此体现不出方向选择性</p>
+<p><span
+class="math inline"><em>α</em>, <em>β</em></span>受vel.的影响，因此体现不出方向选择性</p>
 <p>此时不同vel.的椭圆同样能呈现出不同的倾斜角，但这种倾斜角与Gain模型倾斜角的来源是不同的</p>
 <h2 id="混合模型">混合模型</h2>
-<p>混合模型是三个模型的和，保持椭圆的模式，并且相位、长短轴、中心位置均受vel.的影响，但实验中发现相位不受影响，可能是拟合的时候$a_3$接近于0。从对应Fig4D中也可以看出混合模型与Additive模型偏离较大，接近另外两个模型。</p>
-<h2 id="PC1-PC2平面表示方向的原因">PC1-PC2平面表示方向的原因</h2>
+<p>混合模型是三个模型的和，保持椭圆的模式，并且相位、长短轴、中心位置均受vel.的影响，但实验中发现相位不受影响，可能是拟合的时候<span
+class="math inline"><em>a</em><sub>3</sub></span>接近于0。从对应Fig4D中也可以看出混合模型与Additive模型偏离较大，接近另外两个模型。</p>
+<h2 id="pc1-pc2平面表示方向的原因">PC1-PC2平面表示方向的原因</h2>
 <p>PCA是寻找数据中方差最大的方向，而在高维空间的椭圆中，方差最大的方向是该椭圆的长轴，其次是短轴，理想情况下其它方向的方差为0，因此PC1-PC2平面对应了椭圆所在的平面，即表示方向</p>
 <p>当存在多个椭圆时应该接近这些椭圆倾角的平均值</p>
 
@@ -616,6 +640,7 @@ $$</p>
 
   
   
+
 
 
 
@@ -873,6 +898,49 @@ $$</p>
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

@@ -19,15 +19,15 @@
   <meta name="author" content="Astrazenith">
   <meta name="keywords" content="">
   
-    <meta name="description" content="交互信息脑机接口指双方通过脑机接口直接以信息流的方式传递信息，不再经过文字、语音、图像等中介过程。  已有研究发现哪怕只是对情绪命名都能提升对情绪的识别能力（情绪粒度），这说明语言文字在思维方式中有着重要作用。如果文字能被一种更高效的方式替代，那么带来的影响是认知的大幅度变化。如：情绪的传递不再仅受限于少数的词汇，个体能“精确地”将当前的感受传递给其他个体。考虑到不同人思维方式的差异，他们接收到">
+    <meta name="description" content="交互信息脑机接口指双方通过脑机接口直接以信息流的方式传递信息，不再经过文字、语音、图像等中介过程。  已有研究发现哪怕只是对情绪命名都能提升对情绪的识别能力（情绪粒度），这说明语言文字在思维方式中有着重要作用。如果文字能被一种更高效的方式替代，那么带来的影响是认知的大幅度变化。如：情绪的传递不再仅受限于少数的词汇，个体能“精确地”将当前的感受传递给其他个体。考虑到不同人思维方式的差异，他们">
 <meta property="og:type" content="article">
 <meta property="og:title" content="交互信息脑机接口">
 <meta property="og:url" content="https://miraclexc.github.io/2026/03/23/interactive-information-bci/">
 <meta property="og:site_name" content="Astrazenith&#39;s Blog">
-<meta property="og:description" content="交互信息脑机接口指双方通过脑机接口直接以信息流的方式传递信息，不再经过文字、语音、图像等中介过程。  已有研究发现哪怕只是对情绪命名都能提升对情绪的识别能力（情绪粒度），这说明语言文字在思维方式中有着重要作用。如果文字能被一种更高效的方式替代，那么带来的影响是认知的大幅度变化。如：情绪的传递不再仅受限于少数的词汇，个体能“精确地”将当前的感受传递给其他个体。考虑到不同人思维方式的差异，他们接收到">
+<meta property="og:description" content="交互信息脑机接口指双方通过脑机接口直接以信息流的方式传递信息，不再经过文字、语音、图像等中介过程。  已有研究发现哪怕只是对情绪命名都能提升对情绪的识别能力（情绪粒度），这说明语言文字在思维方式中有着重要作用。如果文字能被一种更高效的方式替代，那么带来的影响是认知的大幅度变化。如：情绪的传递不再仅受限于少数的词汇，个体能“精确地”将当前的感受传递给其他个体。考虑到不同人思维方式的差异，他们">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-03-23T05:27:10.000Z">
-<meta property="article:modified_time" content="2026-06-13T06:40:04.953Z">
+<meta property="article:modified_time" content="2026-03-23T05:27:10.000Z">
 <meta property="article:author" content="Astrazenith">
 <meta property="article:tag" content="群体意识">
 <meta property="article:tag" content="脑机接口">
@@ -46,8 +46,6 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -381,14 +379,6 @@
           <article class="post-content mx-auto">
             <h1 id="seo-header">交互信息脑机接口</h1>
             
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2026年6月13日 下午
-                  
-                
-              </p>
-            
             
               <div class="markdown-body">
                 
@@ -575,6 +565,7 @@
 
   
   
+
 
 
 
@@ -832,6 +823,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
